@@ -40,4 +40,4 @@ calculateOrderAmount();
 
 ![siparislerim](https://user-images.githubusercontent.com/20703102/102996063-7136d680-4533-11eb-9147-efdfbc05f30e.png)
 
-![siparislerim](https://user-images.githubusercontent.com/20703102/102996109-87dd2d80-4533-11eb-9de3-99defe097e0d.png)
+![siparislerim-console](https://user-images.githubusercontent.com/20703102/102996170-a6432900-4533-11eb-87e9-3c6a184e0494.png)
