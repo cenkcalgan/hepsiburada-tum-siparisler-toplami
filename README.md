@@ -1,7 +1,10 @@
 # Hepsiburada Siparişler Toplamı
-**"Hepsiburada > Siparişlerim"** sayfasında listelenen siparişlerin aylık ve genel toplam tutarlarını console'a yazdıran JavaScript kod parçası... 
+**"Hepsiburada > Siparişlerim"** sayfasında listelenen siparişlerin aylık ve genel toplam tutarlarını console'a yazdıran JavaScript kod parçası. 
 
-**Not:** Sayfa kaydırıldıkça yüklenecek geçmiş sipariş kayıtlarına göre genel toplam güncellenecektir.
+**Not:** 
+
+* Genel toplam, sayfa kaydırıldıkça yüklenecek geçmiş sipariş kayıtlarına göre güncellenecektir.
+* Kod parçası, sayfanın HTML düzenine ve CSS sınıf tanımlamalarına göre çalışmaktadır.
 
 ```javascript
 var orderBlockElementsLength = 0;
