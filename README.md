@@ -1,5 +1,5 @@
 # Hepsiburada.com Tüm Siparişler Toplamı - Chrome Eklentisi
-Bu eklenti sayesinde **https://www.hepsiburada.com/siparislerim** adresinde listelenen tüm siparişlerin toplam tutarı sayfada "Siparişlerim" başlığının sağında sayfa kaydırıldığında sayfanın sonunda konumlanır. 
+Eklenti sayesinde, **https://www.hepsiburada.com/siparislerim** adresinde listelenen tüm siparişlerin toplam tutarı sayfada "Siparişlerim" başlığının sağında sayfa kaydırıldığında sayfanın sonunda konumlanır. 
 
 **Not:** 
 
