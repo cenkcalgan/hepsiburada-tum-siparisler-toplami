@@ -1,4 +1,4 @@
-const blockContainer = document.querySelector(".main__container");
+const blockContainer = document.querySelector(".layout-container");
 const totalPriceDiv = document.createElement("div");
 totalPriceDiv.className = "price price__total";
 let orderBlockElementsLength = 0;
@@ -79,36 +79,52 @@ function updateSubtotalDiv(subtotal) {
 }
 
 function calculateOrderAmount() {
-  const orderBlockElements = document.querySelectorAll(".order-block");
+  const orderBlockElements = document.querySelectorAll(
+    ".orders-page__groups__item"
+  );
   let totalPrice = 0;
 
   orderBlockElementsLength = orderBlockElements.length;
   orderBlockElements.forEach((blockItem) => {
     let orderElements = blockItem.querySelectorAll(".e2e-orderRow-price");
     let subtotal = 0;
+
     orderElements.forEach((elementItem) => {
+      let textContent = elementItem.textContent;
       subtotal += parseFloat(
-        elementItem.textContent
-          .replace(" TLKredi Kartı", "")
-          .replace(".", "")
-          .replace(",", ".")
+        getPriceValueFromString(textContent).replace(".", "").replace(",", ".")
       );
+
+      // elementItem.textContent
+      // .replace(" TLKredi Kartı", "")
+      // .replace(" TLHepsipay Cüzdanım", "")
+      // .replace(".", "")
+      // .replace(",", ".")
     });
     totalPrice += subtotal;
 
-    const pricSubtotalDiv = blockItem.querySelector(".price__subtotal");
-    if (!pricSubtotalDiv) {
+    const priceSubtotalDiv = blockItem.querySelector(".price__subtotal");
+    console.log("priceSubtotalDiv", priceSubtotalDiv);
+    if (priceSubtotalDiv === null) {
       blockItem.append(createSubtotalDiv(subtotal));
     } else {
-      pricSubtotalDiv.remove();
+      priceSubtotalDiv.remove();
       blockItem.append(createSubtotalDiv(subtotal));
     }
   });
-
   totalPriceDiv.innerHTML = `<span>Genel Toplam :</span> ${convertCurrency(
     totalPrice
   )}`;
-  document.querySelector(".main__container").append(totalPriceDiv);
+  document.querySelector(".layout-container").append(totalPriceDiv);
+}
+
+function getPriceValueFromString(textContent) {
+  numbers = textContent.match(/([0-9].+\,?[0-9])/g);
+  if (numbers) {
+    return numbers[0];
+  } else {
+    return 0;
+  }
 }
 
 function getElementDimensionPosition(element) {
@@ -120,9 +136,9 @@ function getElementDimensionPosition(element) {
   };
 }
 
-function totalPriceVerticalPosition(){
-  const mainTitleDP = getElementDimensionPosition(".main__container__title");
-  if(document.querySelector("html").scrollTop > 100){
+function totalPriceVerticalPosition() {
+  const mainTitleDP = getElementDimensionPosition(".layout-container__title");
+  if (document.querySelector("html").scrollTop > 100) {
     totalPriceDiv.style.top = "";
     if (window.innerWidth <= 576) {
       totalPriceDiv.style.bottom = "120px";
@@ -131,26 +147,26 @@ function totalPriceVerticalPosition(){
     }
   } else {
     totalPriceDiv.style.top = mainTitleDP.top - 8 + "px";
-    totalPriceDiv.style.bottom = ""
+    totalPriceDiv.style.bottom = "";
   }
 }
 
 function resizeWindow() {
-  const mainContainerDP = getElementDimensionPosition(".main__container");
+  const mainContainerDP = getElementDimensionPosition(".layout-container");
   const totalPriceDP = getElementDimensionPosition(".price__total");
-  
+
   totalPriceVerticalPosition();
 
   if (window.innerWidth <= 576) {
     totalPriceDiv.style.left = "auto";
     totalPriceDiv.style.right = "0";
-  } else if (window.innerWidth <= 768){
+  } else if (window.innerWidth <= 768) {
     totalPriceDiv.style.left = "auto";
     totalPriceDiv.style.right = "15px";
   } else {
     totalPriceDiv.style.left =
-    (mainContainerDP.width - totalPriceDP.width) + mainContainerDP.left + "px";
-    totalPriceDiv.style.right = ""
+      mainContainerDP.width - totalPriceDP.width + mainContainerDP.left + "px";
+    totalPriceDiv.style.right = "";
   }
 }
 
