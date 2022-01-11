@@ -1,34 +1,27 @@
 {
   "name": "Hepsiburada.com Tüm Siparişler Toplamı",
   "short_name": "HBTST",
-  "version": "1.0.0",
   "description": "Bu eklenti, Hepsiburada.com sitesinden verilen siparişlerin toplam tutarının  görüntülenmesini sağlar.",
-  "permissions": ["declarativeContent"],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
+  "version": "2.1.1",
+  "manifest_version": 3,
   "content_scripts": [
     {
       "matches": ["https://www.hepsiburada.com/siparislerim"],
       "js": ["content.js"]
     }
   ],
-  "page_action": {
+  "action": {
     "default_icon": {
-      "16": "images/favicon-16x16.png",
-      "32": "images/favicon-32x32.png",
-      "48": "images/favicon-48x48.png",
-      "64": "images/favicon-64x64.png",
-      "128": "images/favicon-128x128.png"
+      "16": "images/favicon-16x16-gray.png",
+      "32": "images/favicon-32x32-gray.png",
+      "48": "images/favicon-48x48-gray.png",
+      "64": "images/favicon-64x64-gray.png",
+      "128": "images/favicon-128x128-gray.png"
     }
   },
-  "icons": {
-    "16": "images/favicon-16x16.png",
-    "32": "images/favicon-32x32.png",
-    "48": "images/favicon-48x48.png",
-    "64": "images/favicon-64x64.png",
-    "128": "images/favicon-128x128.png"
-  },
-  "manifest_version": 2
+  "permissions": ["declarativeContent"],
+  "host_permissions": ["https://www.hepsiburada.com/"],
+  "background": {
+    "service_worker": "background.js"
+  }
 }
