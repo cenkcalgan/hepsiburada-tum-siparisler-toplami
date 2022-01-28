@@ -2,7 +2,7 @@
   "name": "Hepsiburada.com Tüm Siparişler Toplamı",
   "short_name": "HBTST",
   "description": "Bu eklenti, Hepsiburada.com sitesinden verilen siparişlerin toplam tutarının  görüntülenmesini sağlar.",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "manifest_version": 3,
   "content_scripts": [
     {

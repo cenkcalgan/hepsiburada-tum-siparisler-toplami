@@ -104,7 +104,7 @@ function calculateOrderAmount() {
     totalPrice += subtotal;
 
     const priceSubtotalDiv = blockItem.querySelector(".price__subtotal");
-    console.log("priceSubtotalDiv", priceSubtotalDiv);
+    // console.log("priceSubtotalDiv", priceSubtotalDiv);
     if (priceSubtotalDiv === null) {
       blockItem.append(createSubtotalDiv(subtotal));
     } else {
